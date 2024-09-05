@@ -1,0 +1,33 @@
+﻿@await Html.PartialAsync("CssPartial")
+@await Html.PartialAsync("ScriptsPartial")
+<div id="header-2">
+    <header class="header header2">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h1><a href="/">@Config.CompanyName</a></h1>
+                </div>
+
+                <div class="col-md-9">
+                    <nav class="menu-2">
+                        <ul class="nav wtf-menu">
+                            <li class="item-select parent">
+                                <a asp-area="" asp-controller="Affiches" asp-action="Index" asp-route-id="">Главная</a>
+                            </li>
+
+                            <li class="parent">
+                                <a asp-area="" asp-controller="Actors" asp-action="Index" asp-route-id="">Артисты</a>
+                            </li>
+
+                            <li class="parent">
+                                <a asp-area="" asp-controller="Home" asp-action="Contacts">Контакты</a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

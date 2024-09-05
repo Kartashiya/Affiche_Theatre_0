@@ -1,0 +1,50 @@
+﻿@model IQueryable<Affiche>
+@{
+    TextField textField = ViewBag.TextField;
+
+    ViewBag.Title = textField.MetaTitle;
+    ViewBag.Description = textField.MetaDescription;
+    ViewBag.Keywords = textField.MetaKeywords;
+}
+<div class="content">
+    <div class="welcome">
+        <div class="container">
+            @if (Model.Any())
+            {
+                foreach (Affiche entity in Model)
+                {
+                    <div>
+                        <div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="welcome-serv-img">
+                                        <a asp-area="" asp-controller="Affiches" asp-action="Index" asp-route-id="@entity.Id">
+                                            <img src="~/images/@entity.TitleImagePath" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="detail">
+                                        <br />
+                                        <h3>@entity.Title</h3>
+                                        <br />
+                                        <br />
+                                        <p>
+                                            Рейтинг: @entity.Age_limit +<br />
+                                            Длительность: @entity.Duration<br />
+                                            Автор: @entity.Autor<br />
+                                            <br />@entity.Short_Text
+                                        </p>
+                                        <a asp-area="" asp-controller="Affiches" asp-action="Index" asp-route-id="@entity.Id">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br /><br /><br />
+                }
+
+            }
+        </div>
+    </div>
+</div>

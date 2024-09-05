@@ -1,0 +1,190 @@
+﻿@model Affiche
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+    @*@await Html.PartialAsync("CssPartial")
+    @await Html.PartialAsync("ScriptsPartial")*@
+}
+
+<div class="spectacle">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">
+                            <h2>@Model.Title</h2>
+                            <p>@Model.Short_Text</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="hospital">
+                    <div class="span12">
+                        <div id="services-slide">
+                            <div class="item"><img src="~/images/@Model.TitleImagePath" alt=""></div>
+                            @*<div class="item"><img src="images/service-two-img2.jpg" alt=""></div>
+                                <div class="item"><img src="images/service-two-img3.jpg" alt=""></div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="=why-choose-us">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="main-title">
+                                <br /><br /><br /><br />
+                            </div>
+                        </div>
+                    </div>
+                    <ul id="why-choose" class="why-choose">
+                        <li class="open">
+                            <div class="link"><i class="icon-first-aid-box"></i>ОСНОВНАЯ ИНФОРМАЦИЯ<i class="icon-chevron-down"></i></div>
+                            <ul class="submenu" style=" display:block;">
+                                <li>
+
+                                    <h5>Возраст: @Model.Age_limit+</h5>
+                                    <h5>Длительность: @Model.Duration</h5>
+                                    <h5>Дата и время начала: @Model.Date_Spectacle</h5>
+                                    <h5>Автор: @Model.Autor</h5>
+                                    @if (Model.Pyshkin_Card == true)
+                                    {
+                                        <h5>Пушкинская карта</h5>
+                                    }
+                                    <br />
+                                </li>
+                            </ul>
+
+                            <div class="link"><i class="icon-mobile2"></i>ОПИСАНИЕ<i class="icon-chevron-down"></i></div>
+                            <ul class="submenu">
+                                <li>
+                                    <p>@Html.Raw(Model.Text)</p>
+                                </li>
+                            </ul>
+
+
+
+                            <div class="link"><i class="icon-mobile2"></i>ПОСТАНОВЩИКИ<i class="fa icon-chevron-down"></i></div>
+                            <ul class="submenu">
+                                <li>
+                                    <h5>Режиссер-постановщик</h5>
+                                    <h6>Александр Огарев</h6>
+                                    <br />
+                                    <h5>Сценография и костюмы</h5>
+                                    <h6>Ирина Бринкус</h6>
+                                    <br />
+                                    <h5>Режиссер по пластике</h5>
+                                    <h6>Игорь Григурко</h6>
+                                </li>
+                            </ul>
+
+
+
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="services-four-dark">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-title">
+                    <h2>Актеры</h2>
+                    <!-- <p>If you need a doctor for to consectetuer Lorem ipsum dolor, consectetur adipiscing elit. Ut volutpat eros  adipiscing nonummy.</p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="row  margin-bottom">
+
+            <div class="col-md-4">
+                <div class="services-sec">
+
+                    <!-- <div class="icon">
+                        <i class="icon-ambulanc"></i>
+                    </div> -->
+                    <div class="detail">
+                        <h6>Ленни</h6>
+                        <p>Георгий Дмитриев</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="services-sec">
+
+
+                    <div class="detail">
+                        <h6>Джордж</h6>
+                        <p>Станислав Линейкий</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="services-sec">
+
+
+                    <div class="detail">
+                        <h6>Кудряш</h6>
+                        <p>Иван Янюк</p>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- ВТОРАЯ СТРОЧКА -->
+
+
+
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="services-sec">
+                    <div class="detail">
+
+                        <h6>Огразок</h6>
+                        <p>Артем Рудой</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="services-sec">
+
+
+                    <div class="detail">
+                        <h6>Жена Кудряша</h6>
+                        <p>Ася Малеванова</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="services-sec">
+                    <div class="detail">
+                        <h6>Жена Кудряша</h6>
+                        <p>Анна Шимохина</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!--End Services Four-->

@@ -1,0 +1,48 @@
+﻿@model TextField
+@{
+    ViewBag.Title = Model.MetaTitle;
+    ViewBag.Dicription = Model.MetaDescription;
+    ViewBag.Keywords = Model.MetaKeywords;
+}
+<div class="content">
+    <div class="contact-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="our-location">
+                        <div class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2230.323641815302!2d92.881602651529!3d56.01306747926078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5cd7ae3623a7ea83%3A0xfb85e222866133c7!2z0L_RgC4g0JzQuNGA0LAsIDMyLCDQmtGA0LDRgdC90L7Rj9GA0YHQuiwg0JrRgNCw0YHQvdC-0Y_RgNGB0LrQuNC5INC60YDQsNC5LCA2NjAwNDk!5e0!3m2!1sru!2sru!4v1672344986050!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="get-directions">
+                            <form action="http://maps.google.com/maps" method="get" target="_blank">
+                                <input type="text" name="saddr" placeholder="Введите адрес" />
+                                <input type="hidden" name="daddr" value="Россия, Красноярский край, город Красноярск, проспект Мира 32" />
+                                <input type="submit" value="Get directions" class="direction-btn" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="col-md-12">
+                <div class="contact-get">
+                    <div class="main-title2">
+                        <h2><span>Связаться с нами</span> </h2>
+                        <p>Используйте один из этих способов, чтобы связаться с нами!</p> <br /><br />
+                    </div>
+                    <div class="get-in-touch">
+                        <div class="detail">
+                            @Html.Raw(Model.Text)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div>
+    @Html.Raw(Model.Text)
+</div>*@

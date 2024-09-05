@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @await Html.PartialAsync("MetatagsPartial")
+    @*@await Html.PartialAsync("CssPartial")*@
+    @*main file*@
+    <link href="~/css/medical-guide.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Medical Guide Icons*@
+    <link href="~/fonts/medical-guide-icons.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Default Color*@
+    <link href="~/css/default-color.css" asp-append-version="true" rel="stylesheet" id="color" type="text/css">
+
+    @*bootstrap*@
+    <link href="~/css/bootstrap.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Dropmenu*@
+    <link href="~/css/dropmenu.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Sticky Header*@
+    <link href="~/css/sticky-header.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*revolution*@
+    <link href="~/css/style.css" asp-append-version="true" rel="stylesheet" type="text/css">
+    <link href="~/css/settings.css" asp-append-version="true" rel="stylesheet" type="text/css">
+    <link href="~/css/extralayers.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Accordion*@
+    <link href="~/css/accordion.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*tabs*@
+    <link href="~/css/tabs.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Owl Carousel*@
+    <link href="~/css/owl.carousel.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+    @*Mobile Menu*@
+    <link rel="stylesheet" type="text/css" href="~/css/jquery.mmenu.all.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/css/demo.css" asp-append-version="true" />
+
+    @*PreLoader*@
+    <link href="~/css/loader.css" asp-append-version="true" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+    <div id="wrap">
+
+        <!--Header-->
+        @await Html.PartialAsync("HeaderPartial")
+
+        <!-- время работы театра -->
+        <div class="container">
+            <div class="time-table-sec">
+                <ul id="accordion2" class="accordion2">
+                    <li>
+                        <ul class="submenu time-table">
+                            <li class="tit"><h5>Время работы</h5></li>
+                            <li><span class="day">Пн - Пт</span> <span class="divider">-</span> <span class="time">8.00 - 16.00</span></li>
+                            <li><span class="day">Сб</span> <span class="divider">-</span> <span class="time">9.15 - 17.00</span></li>
+                            <li><span class="day">Вс</span> <span class="divider">-</span> <span class="time">9.45 - 15.00</span></li>
+                        </ul>
+                        <div class="link"><img class="time-tab" src="images/timetable-menu-purple.png" alt=""></div>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Mobile Menu-->
+        @await Html.PartialAsync("MobilePartial")
+
+        <!--Content-->
+        @RenderBody()
+        @RenderSection("scripts", required: false);
+
+        <a href="#0" class="cd-top"></a>
+    </div>
+
+    @*js*@
+    @*@await Html.PartialAsync("ScriptsPartial")*@
+    @section scripts{ 
+
+        
+    
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <!-- SMOOTH SCROLL -->
+    <script type="text/javascript" src="js/scroll-desktop.js"></script>
+    <script type="text/javascript" src="js/scroll-desktop-smooth.js"></script>
+
+    <!-- START REVOLUTION SLIDER -->
+    <script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
+
+
+    <!-- Date Picker and input hover -->
+    <script type="text/javascript" src="js/classie.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+
+    <!-- Fun Facts Counter -->
+    <script type="text/javascript" src="js/counter.js"></script>
+
+
+    <!-- Welcome Tabs -->
+    <script type="text/javascript" src="js/tabs.js"></script>
+
+
+    <!-- All Carousel -->
+    <script type="text/javascript" src="js/owl.carousel.js"></script>
+
+    <!-- Mobile Menu -->
+    <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
+
+    <!-- All Scripts -->
+    <script type="text/javascript" src="js/custom.js"></script>
+}
+
+
+    <!-- Revolution Slider -->
+    <script type="text/javascript">
+        jQuery('.tp-banner').show().revolution(
+            {
+                dottedOverlay: "none",
+                delay: 16000,
+                startwidth: 1170,
+                startheight: 720,
+                hideThumbs: 200,
+
+                thumbWidth: 100,
+                thumbHeight: 50,
+                thumbAmount: 5,
+
+                navigationType: "nexttobullets",
+                navigationArrows: "solo",
+                navigationStyle: "preview",
+
+                touchenabled: "on",
+                onHoverStop: "on",
+
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+
+                parallax: "mouse",
+                parallaxBgFreeze: "on",
+                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+
+                keyboardNavigation: "off",
+
+                navigationHAlign: "center",
+                navigationVAlign: "bottom",
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: "left",
+                soloArrowLeftValign: "center",
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: "right",
+                soloArrowRightValign: "center",
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: "on",
+                fullScreen: "off",
+
+                spinner: "spinner4",
+
+                stopLoop: "off",
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: "off",
+
+                autoHeight: "off",
+                forceFullWidth: "off",
+
+
+
+                hideThumbsOnMobile: "off",
+                hideNavDelayOnMobile: 1500,
+                hideBulletsOnMobile: "off",
+                hideArrowsOnMobile: "off",
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                videoJsPath: "rs-plugin/videojs/",
+                fullScreenOffsetContainer: ""
+            });
+    </script>
+
+
+</body>
+</html>

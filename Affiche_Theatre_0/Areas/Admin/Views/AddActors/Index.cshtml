@@ -1,0 +1,37 @@
+﻿@model IQueryable<Actor>
+@{
+    string strTitle = "Редактировать информацию актёров";
+    ViewBag.Title = strTitle;
+}
+<div class="container">
+    <div class="row">
+        <div class="div-box" style="text-align: justify">
+            <h3>@strTitle</h3> <br /><br>
+            <a asp-area="Admin" asp-controller="AddActors" asp-action="Edit" asp-route-id=""><h5>Добавить актёра</h5></a>
+        </div>
+            @*если присутствует хотя бы 1 элемент*@
+            @if (@Model.Any())
+            {
+                <div>
+                    @foreach (Actor entity in Model)
+                    {
+                        <div>
+                            <a asp-area="Admin" asp-controller="AddActors" asp-action="Edit" asp-route-id="@entity.Id">Редактировать | </a>
+
+                            <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="AddActors" asp-action="Delete" method="post">
+                                <input type="hidden" name="id" value="@entity.Id" />
+                                <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">Удалить | </a>
+                            </form>
+
+                            <a asp-area="" asp-controller="Actors" asp-action="Index" asp-route-id="@entity.Id">
+                                @($"{entity.FIO_Actor}")
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+            <br /><br /><br /><br /><br /><br /><br />
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" asp-route-id=""><h5>Назад</h5></a>
+        @*</div>*@
+    </div>
+</div>

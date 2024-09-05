@@ -1,0 +1,81 @@
+﻿@model TextField
+@{
+    string strTitle = "Редактировать страницу";
+    ViewBag.Title = strTitle;
+}
+
+<script src="https://cdn.tiny.cloud/1/vj4o4vzodhtumzjhun4wbb7daz9fxkzwqi6l2j295jyeeqod/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<div class="div-box">
+    <h2>@strTitle</h2>
+    <DIV class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: justify">
+                <form asp-area="Admin" asp-controller="TextFields" asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="DateAdded" />
+                    <input type="hidden" asp-for="CodeWord" />
+
+                    <div asp-validation-summary="All"></div>
+                    <div>
+                        <label asp-for="Title"></label><br>
+                        <input asp-for="Title" />
+                        <span asp-validation-for="Title"></span>
+                    </div>
+                    <br />
+                   
+                    
+
+                    <div>
+                        <label asp-for="Text"></label><br />
+                        <textarea id="mytextarea" name="text">@(Model.Text)</textarea>
+                        <span asp-validation-for="Text"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="MetaTitle"></label><br>
+                        <input asp-for="MetaTitle" />
+                        <span asp-validation-for="MetaTitle"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="MetaDescription"></label><br>
+                        <input asp-for="MetaDescription" />
+                        <span asp-validation-for="MetaDescription"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="MetaKeywords"></label><br>
+                        <input asp-for="MetaKeywords" />
+                        <span asp-validation-for="MetaKeywords"></span>
+                    </div>
+                    <br />
+                    <input type="submit" value="СОХРАНИТЬ" />
+                </form>
+            </div>
+        </div>
+
+    </DIV>
+</div>
+
+<!--/*TINYMCE*/-->
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        //plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ballist nemlist outdent indent | link image | print preview media fullpage | forecolor backcolory | outdent indent',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        language: "ru"
+    });
+
+    $text = $_POST['text'];
+    //const textArea = document.querySelector('#mytextarea');
+    //document.querySelector('.get-data').addEventListener('click', () => {
+    //    let d = tinymce.get('mytextarea').getContent();
+    //    console.log(d);
+    //});
+
+</script>
+<!--</script>-->

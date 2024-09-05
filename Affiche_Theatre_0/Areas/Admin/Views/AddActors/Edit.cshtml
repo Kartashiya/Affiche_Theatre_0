@@ -1,0 +1,90 @@
+﻿@model Actor
+@{
+    string strTitle = "Редактировать информацию о актёре";
+    ViewBag.Title = strTitle;
+}
+<script src="https://cdn.tiny.cloud/1/vj4o4vzodhtumzjhun4wbb7daz9fxkzwqi6l2j295jyeeqod/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<div class="div-box">
+    <h2>@strTitle</h2> <br />
+    <DIV class="container">
+        <div class="row">
+            <div class="col-md-12" style="text-align: justify">
+                <form asp-area="Admin" asp-controller="AddActors" asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    @*<input type="hidden" asp-for="DateAdded" />*@
+                    <input type="hidden" asp-for="ActorPhotoPath" />
+
+                    <div asp-validation-summary="All"></div>
+                    <div>
+                        <label asp-for="FIO_Actor" ></label><br />
+                        <input asp-for="FIO_Actor" type="text" class="text"/>
+                        <span asp-validation-for="FIO_Actor"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="Production"></label><br />
+                        <textarea id="mytextarea" name="production">@Model.Production</textarea>
+                        <span asp-validation-for="Production"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="Short_Descript"></label><br />
+                        <input asp-for="Short_Descript" type="text" class="text"/>
+                        <span asp-validation-for="Short_Descript"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="Text"></label><br />
+                        <textarea id="mytextarea" name="text">@Model.Text</textarea>
+                        <span asp-validation-for="Text"></span>
+                    </div>
+                    <br />
+                    <div>
+                        <label asp-for="ActorPhotoPath"></label><br />
+                        <input type="file" name="ActorPhotoPath" id="ActorPhotoPath" />
+                        <div>
+                            <img class="img-block" src="~/images/@Model.ActorPhotoPath" />
+                        </div>
+                    </div>
+                    <br />
+                    @*<div>
+                <label asp-for="MetaTitle"></label><br />
+                <input asp-for="MetaTitle" />
+                <span asp-validation-for="MetaTitle"></span>
+            </div><br />
+            <div>
+                <label asp-for="MetaDescription"></label><br />
+                <input asp-for="MetaDescription" />
+                <span asp-validation-for="MetaDescription"></span>
+            </div><br />
+            <div>
+                <label asp-for="MetaKeywords"></label><br />
+                <input asp-for="MetaKeywords" />
+                <span asp-validation-for="MetaKeywords"></span>
+            </div>
+            <br />*@
+                    <input type="submit" value="СОХРАНИТЬ" />
+                </form>
+            </div>
+        </div>
+
+    </DIV>
+</div>
+
+
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        //plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ballist nemlist outdent indent | link image | print preview media fullpage | forecolor backcolory | outdent indent',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        language: "ru"
+    });
+
+    $text = $_POST['text'];
+
+</script>

@@ -1,0 +1,60 @@
+﻿@model IQueryable<Actor>
+@{
+    ViewBag.Title = "Артисты";
+    ViewBag.Description = "";
+    ViewBag.Keywords = "";
+}
+@await Html.PartialAsync("ScriptsPartial")
+<div class="content">
+    <div class="member-detail">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="main-title">
+                        <h2><span>Наши</span> @ViewBag.Title</h2>
+
+                    </div>
+                </div>
+            </div>
+            @if (Model.Any())
+            {
+                foreach (Actor entity in Model)
+                {
+
+                    <div class="post item">
+
+                        <div class="col-md-6">
+                            <div class="gallery-sec">
+                                <div class="image-hover img-layer-slide-left-right">
+                                    <img src="~/images/@entity.ActorPhotoPath" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="team-detail">
+                                <div class="name">
+                                    <h6>@entity.FIO_Actor</h6>
+
+                                </div>
+                                <ul>
+                                    <li>
+                                        <span class="title">О артисте</span>
+                                        <span>@Html.Raw(entity.Text)</span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Постановки</span>
+                                        <span>@Html.Raw(entity.Production)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"></div>
+                }
+            }
+
+        </div>
+    </div>
+</div>

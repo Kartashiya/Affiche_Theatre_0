@@ -1,0 +1,60 @@
+﻿@model IQueryable<Affiche>
+@{
+    string strTitle = "Панель администратора";
+    ViewBag.Title = strTitle;
+}
+<div class="div-box">
+    <h2>@strTitle</h2>
+    <div class="container">
+        <div class="row">
+
+            <div class="div-box" style="text-align: justify">
+                <h3>Афиша</h3> <br />
+                <a asp-area="Admin" asp-controller="AddAffiches" asp-action="Edit" asp-route-id=""><h5>Добавить спектакль</h5></a>
+            </div>
+            @*если присутствует хотя бы 1 элемент*@
+            @if (@Model.Any())
+            {
+                <div style="text-align: justify">
+                    @foreach (Affiche entity in Model)
+                    {
+                        <div>
+                            <a asp-area="Admin" asp-controller="AddAffiches" asp-action="Edit" asp-route-id="@entity.Id">Редактировать | </a>
+
+                            <form style="display: inline-block;" id="form-@entity.Id" asp-area="Admin" asp-controller="AddAffiches" asp-action="Delete" method="post">
+                                <input type="hidden" name="id" value="@entity.Id" />
+                                <a href="#" onclick="document.getElementById('form-@entity.Id').submit();">Удалить | </a>
+                            </form>
+
+                            <a asp-area="" asp-controller="Affiches" asp-action="Index" asp-route-id="@entity.Id">
+                                @($"{entity.Title}")
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+
+
+            @*</div>*@
+        </div>
+
+    </div>
+    
+
+
+    <div class="container">
+        <div class="row">
+            <div class="div-box" style="text-align: justify">
+                <h3>Редактировать страницы сайта</h3> <br />
+                <a asp-area="Admin" asp-controller="AddActors" asp-action="Index" asp-route-codeWord="PageActors"><h5>Артисты</h5></a>
+                <a asp-area="Admin" asp-controller="TextFields" asp-action="Edit" asp-route-codeWord="PageContacts"><h5>Контакты</h5></a>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <h4><input type="submit" value="ВЫХОД" /></h4>
+        </form>
+    </div>
+</div>
